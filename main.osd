@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <enumDef name="PortraitEnum" type="uint8">
+    <entry value="0" name="Cloud"/>
+    <entry value="1" name="Barret"/>
+    <entry value="2" name="Tifa"/>
+    <entry value="3" name="Aeris"/>
+    <entry value="4" name="Red XIII"/>
+    <entry value="5" name="Yuffie"/>
+    <entry value="6" name="Cait Sith"/>
+    <entry value="7" name="Vincent"/>
+    <entry value="8" name="Cid"/>
+    <entry value="9" name="Young Cloud"/>
+    <entry value="10" name="Sephiroth"/>
+    <entry value="11" name="Chocobo"/>
+    <entry value="255" name="None"/>
+  </enumDef>
+
+  <enumDef name="MateriaEnum" type="uint8">
+    <entry value="0" name="MP Plus"/>
+    <entry value="1" name="HP Plus"/>
+    <entry value="2" name="Speed Plus"/>
+    <entry value="3" name="Magic Plus"/>
+    <entry value="4" name="Luck Plus"/>
+    <entry value="5" name="EXP Plus"/>
+    <entry value="6" name="Gil Plus"/>
+    <entry value="7" name="Enemy Away"/>
+    <entry value="8" name="Enemy Lure"/>
+    <entry value="9" name="Chocobo Lure"/>
+    <entry value="10" name="Pre-emptive"/>
+    <entry value="11" name="Long Range"/>
+    <entry value="12" name="Mega All"/>
+    <entry value="13" name="Counter Attack"/>
+    <entry value="14" name="Slash-All"/>
+    <entry value="15" name="Double Cut"/>
+
+    <entry value="16" name="Cover"/>
+    <entry value="17" name="Underwater"/>
+    <entry value="18" name="HP --- MP"/>
+    <entry value="19" name="W-Magic"/>
+    <entry value="20" name="W-Summon"/>
+    <entry value="21" name="W-Item"/>
+    <entry value="23" name="All"/>
+    <entry value="24" name="Counter"/>
+    <entry value="25" name="Magic Counter"/>
+    <entry value="26" name="MP Turbo"/>
+    <entry value="27" name="MP Absorb"/>
+    <entry value="28" name="HP Absorb"/>
+    <entry value="29" name="Elemental"/>
+    <entry value="30" name="Added Effect"/>
+    <entry value="31" name="Sneak Attack"/>
+
+    <entry value="32" name="Final Attack"/>
+    <entry value="33" name="Added Cut"/>
+    <entry value="34" name="Steal As Well"/>
+    <entry value="35" name="Quadra Magic"/>
+    <entry value="36" name="Steal"/>
+    <entry value="37" name="Sense"/>
+    <entry value="39" name="Throw"/>
+    <entry value="40" name="Morph"/>
+    <entry value="41" name="Deathblow"/>
+    <entry value="42" name="Manipulate"/>
+    <entry value="43" name="Mime"/>
+    <entry value="44" name="Enemy Skill"/>
+
+    <entry value="48" name="Master Command"/>
+    <entry value="49" name="Fire"/>
+    <entry value="50" name="Ice"/>
+    <entry value="51" name="Earth"/>
+    <entry value="52" name="Lightning"/>
+    <entry value="53" name="Restore"/>
+    <entry value="54" name="Heal"/>
+    <entry value="55" name="Revive"/>
+    <entry value="56" name="Seal"/>
+    <entry value="57" name="Mystify"/>
+    <entry value="58" name="Transform"/>
+    <entry value="59" name="Exit"/>
+    <entry value="60" name="Poison"/>
+    <entry value="61" name="Demi"/>
+    <entry value="62" name="Barrier"/>
+
+    <entry value="64" name="Comet"/>
+    <entry value="65" name="Time"/>
+    <entry value="68" name="Destruct"/>
+    <entry value="69" name="Contain"/>
+    <entry value="70" name="FullCure"/>
+    <entry value="71" name="Shield"/>
+    <entry value="72" name="Ultima"/>
+    <entry value="73" name="Master Magic"/>
+    <entry value="74" name="Choco/Mog"/>
+    <entry value="75" name="Shiva"/>
+    <entry value="76" name="Ifrit"/>
+    <entry value="77" name="Ramuh"/>
+    <entry value="78" name="Titan"/>
+    <entry value="79" name="Odin"/>
+
+    <entry value="80" name="Leviathan"/>
+    <entry value="81" name="Bahamut"/>
+    <entry value="82" name="Kujata"/>
+    <entry value="83" name="Alexander"/>
+    <entry value="84" name="Phoenix"/>
+    <entry value="85" name="Neo Bahamut"/>
+    <entry value="86" name="Hades"/>
+    <entry value="87" name="Typhoon"/>
+    <entry value="88" name="Bahamut ZERO"/>
+    <entry value="89" name="Knights of Round"/>
+    <entry value="90" name="Master Summon"/>
+
+    <entry value="255" name="Empty Slot"/>
+  </enumDef>
+
+  <struct name="ff7file">
+    <array name="header" length="9">
+      <primitive name="header" type="char"/>
+    </array>
+
+    <array name="saves" length="15">
+      <struct name="save">
+        <primitive name="checksum" type="uint32"/>
+
+        <struct name="preview">
+          <primitive name="level" type="uint8"/>
+          <array name="portraits" length="3">
+            <enum enum="PortraitEnum" type="uint8"/>
+          </array>
+          <array name="name" length="16">
+            <primitive type="char"/>
+          </array>
+          <primitive name="cur-hp" type="uint16"/>
+          <primitive name="max-hp" type="uint16"/>
+          <primitive name="cur-mp" type="uint16"/>
+          <primitive name="max-mp" type="uint16"/>
+          <primitive name="gil" type="uint32"/>
+          <primitive name="playtime" type="uint32"/>
+          <array name="location" length="32">
+            <primitive type="char"/>
+          </array>
+        </struct>
+
+        <struct name="window-colours">
+          <struct name="upper-left">
+            <primitive name="r" type="uint8"/>
+            <primitive name="g" type="uint8"/>
+            <primitive name="b" type="uint8"/>
+          </struct>
+          <struct name="upper-right">
+            <primitive name="r" type="uint8"/>
+            <primitive name="g" type="uint8"/>
+            <primitive name="b" type="uint8"/>
+          </struct>
+          <struct name="lower-left">
+            <primitive name="r" type="uint8"/>
+            <primitive name="g" type="uint8"/>
+            <primitive name="b" type="uint8"/>
+          </struct>
+          <struct name="lower-right">
+            <primitive name="r" type="uint8"/>
+            <primitive name="g" type="uint8"/>
+            <primitive name="b" type="uint8"/>
+          </struct>
+        </struct>
+
+        <array name="character-records" length="9">
+          <struct name="character-record">
+            <enum name="id" enum="PortraitEnum" type="uint8"/>
+            <primitive name="level" type="uint8"/>
+
+            <struct name="stats">
+              <primitive name="strength" type="uint8"/>
+              <primitive name="vitality" type="uint8"/>
+              <primitive name="magic" type="uint8"/>
+              <primitive name="spirit" type="uint8"/>
+              <primitive name="dexterity" type="uint8"/>
+              <primitive name="luck" type="uint8"/>
+              <primitive name="strength-bonus" type="uint8"/>
+              <primitive name="vitality-bonus" type="uint8"/>
+              <primitive name="magic-bonus" type="uint8"/>
+              <primitive name="spirit-bonus" type="uint8"/>
+              <primitive name="dexterity-bonus" type="uint8"/>
+              <primitive name="luck-bonus" type="uint8"/>
+            </struct>
+
+            <primitive name="limit-level" type="uint8"/>
+            <primitive name="limit-bar" type="uint8"/>
+
+            <array name="name" length="12">
+              <primitive type="char"/>
+            </array>
+            <primitive name="weapon" type="uint8"/>
+            <primitive name="armour" type="uint8"/>
+            <primitive name="accessory" type="uint8"/>
+            <bitfield name="status" width="8" type="bool"/>
+            <bitfield name="order" width="8" type="bool"/>
+            <primitive name="level-bar" type="uint8"/>
+            <bitfield name="limit-skills" width="16" type="bool"/>
+            <primitive name="kills" type="uint16"/>
+            <array name="limit-uses" length="3">
+              <primitive type="uint16"/>
+            </array>
+
+            <primitive name="cur-hp" type="uint16"/>
+            <primitive name="base-hp" type="uint16"/>
+            <primitive name="cur-mp" type="uint16"/>
+            <primitive name="base-mp" type="uint16"/>
+            <primitive name="unknown" type="uint32"/>
+            <primitive name="max-hp" type="uint16"/>
+            <primitive name="max-mp" type="uint16"/>
+            <primitive name="cur-exp" type="uint32"/>
+
+            <array name="weapon-materia" length="8">
+              <struct name="materia">
+                <enum name="id" enum="MateriaEnum" type="uint8"/>
+                <bitfield name="ap" width="24" type="unsigned"/>
+              </struct>
+            </array>
+            <array name="armour-materia" length="8">
+              <struct name="materia">
+                <enum name="id" enum="MateriaEnum" type="uint8"/>
+                <bitfield name="ap" width="24" type="unsigned"/>
+              </struct>
+            </array>
+
+            <primitive name="lvl-exp" type="uint32"/>
+          </struct>
+        </array>
+
+        <array name="party-members" length="3">
+          <enum enum="PortraitEnum" type="uint8"/>
+        </array>
+
+        <!-- Always 0xFF -->
+        <primitive name="alignment" type="char"/>
+
+        <struct name="stock">
+          <array name="items" length="320">
+            <struct name="item">
+              <bitfield name="index" width="9" type="unsigned"/>
+              <bitfield name="quantity" width="7" type="unsigned"/>
+            </struct>
+          </array>
+          <array name="materia" length="200">
+            <struct name="materia">
+              <enum name="id" enum="MateriaEnum" type="uint8"/>
+              <bitfield name="ap" width="24" type="unsigned"/>
+            </struct>
+          </array>
+          <array name="stolen-materia" length="48">
+            <struct name="materia">
+              <enum name="id" enum="MateriaEnum" type="uint8"/>
+              <bitfield name="ap" width="24" type="unsigned"/>
+            </struct>
+          </array>
+          <array name="z_3-unknown" length="32">
+            <!-- Always 0xFF -->
+            <primitive type="char"/>
+          </array>
+          <primitive name="gil" type="uint32"/>
+        </struct>
+
+        <struct name="timer">
+          <primitive name="playtime" type="uint32"/>
+          <primitive name="countdown" type="uint32"/>
+          <primitive name="playtime-fraction" type="uint32"/>
+          <primitive name="countdown-fraction" type="uint32"/>
+        </struct>
+
+        <struct name="map">
+          <primitive name="cur-map-dw" type="uint32"/>
+          <primitive name="cur-map" type="uint16"/>
+          <primitive name="cur-loc" type="uint16"/>
+          <!-- Always 0x00 -->
+          <primitive name="alignment" type="uint16"/>
+          <primitive name="x" type="int16"/>
+          <primitive name="y" type="int16"/>
+          <primitive name="triangle" type="uint16"/>
+          <primitive name="direction" type="uint8"/>
+        </struct>
+
+        <struct name="random-battle">
+          <primitive name="seed" type="uint8"/>
+          <primitive name="offset" type="uint8"/>
+        </struct>
+
+        <!-- Always 0x00 -->
+        <primitive name="alignment" type="uint8"/>
+
+        <array name="field-script" length="5">
+          <array length="256">
+            <primitive type="char"/>
+          </array>
+        </array>
+
+        <struct name="phs">
+          <primitive name="locking" type="uint16"/>
+          <primitive name="visibility" type="uint16"/>
+        </struct>
+
+        <!-- Always 0x00 -->
+        <array name="z_39-unknown" length="48">
+          <primitive type="char"/>
+        </array>
+
+        <struct name="config">
+          <primitive name="battle-speed" type="uint8"/>
+          <primitive name="battle-msg-speed" type="uint8"/>
+          <bitfield name="general" width="16" type="bool"/>
+          <array name="ctrl-mapping" length="16">
+            <primitive type="char"/>
+          </array>
+          <primitive name="msg-speed" type="uint8"/>
+        </struct>
+
+        <!-- Always 0x00 -->
+        <array name="z_40-unknown" length="7">
+          <primitive type="char"/>
+        </array>
+      </struct>
+    </array>
+  </struct>
+</data>

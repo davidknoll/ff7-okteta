@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+ServiceTypes=KPluginInfo
+
+Name=Final Fantasy VII game save
+Comment=Game save file for PC and other versions of Square Enix's Final Fantasy VII
+
+X-KDE-PluginInfo-Author=David Knoll
+X-KDE-PluginInfo-Name=ff7
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-Category=structure
+X-KDE-PluginInfo-License=MIT
